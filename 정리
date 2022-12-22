@@ -48,6 +48,15 @@
 
 #   NaN : Not a Number
 
+4.0 입력
+    - prompt : 결과값은 String형태. 
+        ex) const yourAnswer = prompt("질문", "디폴트 값");
+        -> prompt를 사용하지 않는 이유 
+            1.css를 줄 수 없음
+            2.사용자가 답을 할 때까지 JS는 일시정지를 하고 있음 
+            3.어떤 브라우저는 팝업을 제한해두기도 했음
+            -> 요즘에는 html css로 직접 창을 만들어서 쓴다.
+
 4.  출력
     - console.log : console 창에서 확인 할 수 있다. console.log -- >console창에 log(기록을 한다)를 한다는 뜻 
         ex) console.log('hello world');
@@ -68,6 +77,9 @@
     - 인덱스는 0부터 시작한다.
     - push : 맨 뒤에 추가한다.
         ex) arr.push("hello");
+    - 변수를 배열 안에 넣을 수 있다. 
+        ex) const you ='smart';
+            const character = [you, 'shy', 'handsome'];
 
 8. 주석
     - // 
@@ -118,9 +130,63 @@
 
     - 함수의 인자(매개변수)에 자료형을 쓰지 않는다.
     - 함수 호출 시 건내지는 인수와 인자의 개수가 맞지 않아도 된다.
+    - 함수 호출 시 함수명() 이렇게 써야 한다.
     - 인수의 개수 < 인자의 개수 --> 부족한 인수가 undefined로 들어간다.
     - 인수의 개수 > 인자의 개수 --> 들어온 순서대로 봤을 때 남은 인수가 버려진다. 
     - 함수의 인자는 함수 안에서만 존재한다. 함수 블록 밖에서 존재할 수 없다.
+    - 함수의 결과를 받고 싶을 때 return 
+    - 함수는 return 하고나서 작동하지 않는다.
+    
 
+# const로 객체, 배열을 만들어도 개별적인 속성값을 변경 할 수 있다.
+# 객체나 배열 전체를 재할당하는 것은 불가능하지만 내부 요소를 수정, 추가, 삭제하는 것은 가능하다.
+https://velog.io/@gil0127/Const%EB%8F%84-%EC%88%98%EC%A0%95-%EA%B0%80%EB%8A%A5%ED%95%98%EB%8B%A4
 
+11. 조건문
+    - if(boolean 형){}else if(boolean 형){}else{}
+    - if(boolean 형){}
+    - if(boolean 형){}else{}
 
+    ex) 
+        while (true) {
+        const age = parseInt(prompt("how old are you?"));
+        console.log(typeof age);              
+        console.log(age);    
+        if (isNaN(age)) {
+            alert("잘못입력했습니다. 다시 입력하세요");
+        } else {
+            if (age >= 20) {
+            console.log("돈 여기 있습니다.");
+            } else {
+            console.log("술을 살 수 없어요 바바이 ~ ");
+            }
+            break;
+            }
+        }
+
+12. 타입을 확인하는 법 및 타입을 바꾸는 법
+    - 타입을 확인하는 법 : typeof
+    ex) const age = Number(prompt("how old are you?")); 
+        console.log(typeof age);
+
+    - 타입을 바꾸는 법 : parseInt(), parseFloat(), Number(), String(), toString()
+    parseInt() : 정수로 바꾼다.
+        # 숫자로 바꿀 수 없는 ㅁㄴㅇㄹ asdf 같은 문자열은 typeof로 찍어보면 number가 되지만, 변수를 console로 찍어보면 NaN이 나온다.
+        ex) 
+            const age = parseInt(prompt("how old are you?")); // asdf입력시 
+            console.log(typeof age);                          // number
+            console.log(age);                                 // NaN
+        # 12.5와 같은 소수점있는 숫자는 
+            typeof로 찍어보면 number
+            실제 값을 찍어보면 소수점을 버린 12가 나온다.
+    parseFloat() : 소수점있는 숫자로 바꾼다.
+    Number() : 숫자로 바꾼다.
+    String(), toString() : 문자열로 바꾼다.
+    
+    # 만약, 숫자가 아닌 수를 함수를 이용하여 강제로 숫자로 바꿀 시, 결과값은 NaN이 나온다.
+    - NaN인지 확인하기 위해  isNaN() 을 사용한다. NaN이면 true 아니면 false를 반환한다.
+
+13. &&(and 연산자) ||(or 연산자) 
+
+    # 0 == false ---> true
+    # 0 === false ---> false
