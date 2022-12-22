@@ -46,6 +46,8 @@
     - undefined : 자료형과 값 둘다 모르는 경우. 변수가 메모리에 만들어지긴 했음
     - false와 null은 다르다. false는 값이 false라고 있음
 
+#   NaN : Not a Number
+
 4.  출력
     - console.log : console 창에서 확인 할 수 있다. console.log -- >console창에 log(기록을 한다)를 한다는 뜻 
         ex) console.log('hello world');
@@ -58,4 +60,67 @@
 6.  상수 
     - 변하지 않는 값 -> const 키워드 사용  
 
-7.  
+7.  배열 
+    - 데이터를 정리하는 방법 
+        ex) let arr = new Array();
+        ex) let arr = []
+    - 다른 자료형이 들어가도 된다.
+    - 인덱스는 0부터 시작한다.
+    - push : 맨 뒤에 추가한다.
+        ex) arr.push("hello");
+
+8. 주석
+    - // 
+
+9. 객체 
+    
+    - 객체 생성 및 속성 만들기 1
+            let sunok ={};
+            sunok.name="유선옥";
+            sunok.age = 26;
+
+    - 객체 생성 및 속성 만들기 2
+            let ssunok ={
+            name : '유썬옥',
+            age : 26,
+            sayHi : function(){
+                console.log("객체의 속성에 함수가 있을 땐 함수명(속성명) : function(){}")
+            }
+            };
+
+    - 객체의 속성 접근 법 1) 객체명.속성명 2) 객체명['속성명']
+            console.log(sunok.name);
+            console.log(sunok['age']);
+            console.log(ssunok['name']);
+
+    - 객체의 속성값 수정 및 속성 추가
+            ssunok.name = '메롱';
+            console.log(ssunok['name']);
+
+            ssunok.hobby = 'coding';
+            console.log(ssunok['hobby']);
+
+    - 객체를 콘솔에 찍어보면 객체 형태로 나온다.
+            console.log(ssunok);
+
+            {name: '메롱', age: 26, hobby: 'coding'}
+            age : 26
+            hobby : "coding"
+            name : "메롱"
+            [[Prototype]] : Object
+
+10. 함수
+        ex)
+        function sayHello(name){
+        console.log("hello, my name is " + name);
+        }
+        sayHello("유선옥");
+
+    - 함수의 인자(매개변수)에 자료형을 쓰지 않는다.
+    - 함수 호출 시 건내지는 인수와 인자의 개수가 맞지 않아도 된다.
+    - 인수의 개수 < 인자의 개수 --> 부족한 인수가 undefined로 들어간다.
+    - 인수의 개수 > 인자의 개수 --> 들어온 순서대로 봤을 때 남은 인수가 버려진다. 
+    - 함수의 인자는 함수 안에서만 존재한다. 함수 블록 밖에서 존재할 수 없다.
+
+
+
