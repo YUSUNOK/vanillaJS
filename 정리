@@ -1,3 +1,276 @@
+0. # 스인개 JS
+    입력 
+        prompt -> 리턴값 String
+        confirm -> 리턴값 boolean
+
+        출력 
+        문서내 document.write()
+        console창 console.log()
+        팝업창 alert
+
+        변수 
+        var 재선언 가능 재할당 가능
+        let 재선언 불가 재할당 가능
+        const 재선언 재할당 불가
+
+        자료형
+        undefined : 값과 자료형을 모를 때
+        null : 값만 모를 때
+
+        형변환 
+        정수로 parseInt
+        실수로 parseFloat
+        숫자로 Number
+        문자로 String(), ().toString
+
+        연산자 
+        / 실제로 나눈 결과값
+        == : 값만 같으면 true
+        === 값과 자료형이 모두 같아야 true
+
+
+        js 함수 특징 
+        매개변수와 입력값의 데이터 타입이 동일한지 검사하지 않는다.
+        따라서 function addNum(n1,n2){
+            alert(n1 + n2);
+        } --> 이런식으로 쓰면 된다.
+
+        매개변수와 입력값의 개수가 같은지 확인하지 않는다. 
+        매개변수 개수보다 입력값의 개수가 많으면 매개변수 개수만큼 입력값의 개수가 차례대로 들어간다.
+
+        객체 : 
+        여러 속성을 하나의 변수에 저장할 수 있도록 해주는 데이터 타입
+        데이터(속성)과 데이터에 관련되는 동작(절차, 방법, 기능)을 모두 포함한 개념
+
+
+        arguments 객체는 모든 함수 내에서 이용 가능한 지역 변수입니다. 
+        arguments 객체를 사용하여 함수 내에서 모든 인수(함수 호출할 때 건네주는 변수 =/= 매개변수, 파라미터)를 참조할 수 있으며, 호출할 때 제공한 인수 각각에 대한 항목을 갖고 있습니다.
+        항목의 인덱스는 0부터 시작합니다.
+
+        DOM  :document object Model
+        html 파일을 자바스크립트로 어떻게 제어할 수 있는가? -> 브라우저 안에는 웹 문서를 해석할 수 있는 렌더링 엔진이 있는데, 
+        브라우저로 html 파일을 열면 렌더링 엔진이 html문서를 한줄한줄 해석한다.
+        해석이 끝나면 이러한 문서를 객체화 하여 자바스크립트로 접근화할 수 있게 한다.
+        문서를 객체화 했다고 해서 DOM이라 한다. 이는 스크립트 언어로 html을 제어할 수 있도록 웹문서를 객체화 한 것을 말한다.
+        이 돔은 트리 구조를 가지고 있는데
+        html 안에 해드 바디, 바디 안에 p div .. div안에 ... 이런식
+        html는 하나의 부모 밑에 자식이 n개가 있는 구조이다. 이런 모양을 돔트리라 한다. 
+        각각의 요소를 노드라고 한다. 
+        1) 접근 2) 제어
+
+
+        브라우저 오브젝트 모델 BOM : 브라우저 자체를 제어할 수 있도록 모델링한 것을 브라우저 객체 모델이라 한다.
+        css를 자바스크립트로 조작할 수 있게 모델링한것을 css object model이라 한다. 
+        브라우저 오브젝트 모델에는 웹문서영역을 제어할수있게 제공하는 객체가 있다. 
+        그 객체가 다큐먼트 객체이다. 이는 웹페이지 자체를 의미하며 돔트리의 최상위 노드이다. 
+        이로 원하는 html요소에 접근할 수 있는 것이다. 즉, 돔 요소에 접근하기 위한 진입점이라고 생각하면된다.
+        브라우저 오브젝트 모델 ) 다큐먼트 모델
+        ################
+        DOM , 브라우저, 렌더링 엔진, 트리구조 , 돔트리, 노드,  css object model, 다큐먼트 객체
+        https://www.youtube.com/watch?v=aTGhKjoZeao
+        https://ko.javascript.info/searching-elements-dom
+
+        <자바스크립트는 html을 제어하기 위해 나온 언어이다.>
+        html코드를 자바스크립트가 어떻게 제어할까?
+        1. 웹브라우저에는 렌더링 엔진이 있는데 이것이 html 소스를 위에서부터 한줄 씩 해석한다.
+        2. 해석이 끝나면 문서를 객체화 한다. --> 이것이 DOM(문서 객체 모델)-웹문서를 객체화 한 것이다.
+        3. 돔은 트리구조를 가진다. 돔트리의 최상위 노드가 document객체이다. 
+        4. 브라우저 자체를 제어할 수 있도록 모델링 한 것을 브라우저 객체 모델이다.
+        5. css를 자바스크립트로 조작할 수있게 모델링한 것 css object model
+        6. 브라우저 객체 모델에는 웹문서 영역을 제어할 수 있게 제공하는 객체가 있다. ->이것이 다큐먼트 객체(웹페이지 자체)이다. 
+
+        htmlelement  :  모든 종류의 html 요소를 나타내는 인터페이스
+        getelement 메소드를 통해서 원하는 객체를 조회
+        조회된 객체들을 대상으로 구체적인 작업 처리
+
+
+        * getElementById() : 접근하고자 하는 html 태그의 id값을 이용해 HTMLElement 객체 조회
+        가져온다 요소 아이디로, 접근하고자 하는 요소의 id를 괄호안에 
+        -> HTMLElement 객체 반환
+
+        * getElementsbyName(name) : name속성을 가진 요소 조회
+        * getElementsbyTagName(tagname)  : 태그 이름을 기준으로 요소 조회
+        * getElementsbyClassName(class) : 특정 클래스를 가진 요소 조회
+        ---> HTMLCollection 객체 반환
+
+
+        * 요소 안에 '내용만' 가지고 올 때 : .innerText / .innerHTML
+        - .innerText : 해당 요소 안에 text만 가져옴
+        -.innerHTML  : 해당 요소 안에 태그 + 컨텐츠 가져온다.
+
+        * HTMLElement.innerHTML : 태그 내에 새로운 요소 객체나 내용을 저장하거나 가져올 때 사용
+        * HTMLInputElement.value : input 태그의 value값을 저장하거나 가져올 때 사용
+        ex) 
+        <input type="text" id="txt"><button onclick="data()">클릭</button>
+
+            <script>
+                function data(){
+                    let txt = document.getElementById('txt').value;
+                    alert(txt);
+                }
+            </script>
+
+
+        ---> HTMLInputElement.value 가 나온 이유 
+        : input에서는 innerHTML/innerText 데이터를 가져올 수 없다.
+        input태그에 글자를 작성해도 개발자도구 페이지를 살펴보면 실제 코드에 작성되는 내용이 없음
+        innerHTML/innerText는 태그 속에 있는 내용들을 가지고 오는 기능이기에 사용할 수가 없다.
+
+        ** 함수
+        - 함수 선언
+        function 함수명(매개변수 공간){
+            로직
+        }
+
+        - 함수 호출
+        함수명(입력값);
+
+        -함수 특징
+        1. 입력값의 타입을 확인하지 않음
+        2. 매개변수와 입력밧의 개수가 같은지 확인하지 않음
+        3. 입력값의 개수가 매개변수 개수보다 적다면 부족한 값은 undefined로 설정
+
+        ** 객체
+
+        객체 key - value로 접근가능
+        -객체 선언방식
+        let 객체명 ={
+            속성명1 : 값,
+        ,,,
+        }
+
+        let 객체명 ={}
+        객체명.속성명 = "" ~~ 이렇게 추가
+
+        DOM 
+        document
+        .
+        get
+        Element
+        BY 
+        무엇으로 객체를 가져온다.
+
+        요소 안에 내용 접근, 수정 .innerText
+        요소 안에 태그 내용접근, 수정 : .innerHTML
+        input 태그의 접근, 저장 : .value (input 태그 안에 입력한 값을 가져온다.)
+
+
+        * getElementsByTagName() : 접근하고자 하는 HTML태그의 이름을 이용해서
+        HTMLCollection객체 조회 --> 복수개의 태그들의 객체가 배열로 저장된다.
+        ex) 
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+            </ul>
+            <script>
+                let lis = document.getElementsByTagName('li');
+                for(let i =0; i < lis.length; i ++){
+                    console.log(lis[i].innerText);
+                }
+            </script>
+        ------------------
+        id는 고유한 값이여서 element 하나만 가지고 오지만 
+        tagName은 여러개 존재 가능하기 때문에 elements 복수개가 넘어옴.
+        HTMLCollection 객체로 받아옴 >> 배열과 모양이 비슷하지만 실제로 유사배열이라고 부룬다.
+        사용법은 똑같다.
+        -------------------
+        element 요소 변경 메소드
+        메소드
+        Element.innerHTML = new html content
+        ex) div.innerHTML = "<h1>hello</h1>"
+        Element.attribute = new value
+        ex) img.src = 'a.png'
+        Element.setAttribute(attribute, value)
+        ex) img.setAttribute('src', 'a.png')
+
+        Element.style.property
+
+        Element.getAttribute(attribute)
+        document.getElementById("imgg").getAttribute('alt');
+
+        ------------
+        querySelector(selector) : css 선택자를 이용하여 하나의 요소를 검색
+        ex) document.querySelector('#txt').value 
+        querySelectorAll(selector) : css 선택자를 이용하여 모든 요소를 검색
+        ex)  let lis = document.querySelectorAll('li');
+        --------------
+        CallBack 함수 : 다른코드의 인수로서 넘겨주는 실행가능한 코드. 콜백을넘겨받는 코드는 이 콜백을 필요에 따라 즉시 실행할 수도 있고 아니면 나중에 실행할 수도 있다.
+        코드를 통해 명시적으로 호출하는 함수가 아니라, 어떤 이벤트가 발생했거나 
+        특정 시점에 도달했을 때 시스템에서 호출하는 함수
+        CallBack 함수 : js에서 함수는 다른 함수의 인자로 쓰일 수도 어떤 함수에 의해 리턴될 수도 있다. 
+        이런 함수를 고차함수라고 하낟. 결국, 인자로 넘겨지는 함수를 콜백함수라고 한다. 또한 단지 ㅎ마수를 등록하기만 하고
+        어떤 이벤트가 발생했거나 특정 시점에 도달했을 때 시스템에서 호출하는 함수이다. 
+        ex)
+        functio func(callback) {
+            callback();
+        }
+        function callback() {
+            console.log("callback이다");
+        }
+
+        func(callback);
+
+        결과 : callback이다
+
+        ------------------
+        function introduce (lastName, firstName, callback) { 
+            var fullName = lastName + firstName; 
+            callback(fullName); 
+        } 
+
+        introduce("홍", "길동", function(name) { 
+            console.log(name); 
+            };
+
+        // 결과 -> 홍길동
+
+        ---------------------------
+        동기 : 하나의 요청이 오면 완료가 된 후 다음 요청을 실행하는 방식 -> 순차적 로직 흐름
+        비동기 : 어떤 요청이 오면 완료가 되기 전에 다음 요청을 실행하는 방식
+        -> 동시 효 율적 처리 가능, 즉시 응답이 안되기 때문에 예상 밖 결과가 나올 수  있다.
+        콜백함수는 비동기 방식으로 작성된 함수를 동기처리 하기 위해 필요하다.
+
+        콜백합수는 파라미터로 전달받은 함수를 말한다.
+        파라미터로 콜백함수를 전달받고 함수 내부에서 피룡할 때 콜백함수를 호출할 수 있다.
+        https://yoo11052.tistory.com/153
+
+
+        콜백함수 자주 쓰이는 2가지
+        1) 이벤트 핸들러 & 리스너
+        어떤 이벤트가 발생했을 때 : addEventListener('이벤트종류', 함수)
+        2) 타임 핸들러 
+        의도적으로 시간 지연을 사용하는 기능 : setTimeout(함수, 시간(1000 = 1초))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. 자바스크립트가 왜 좋은 언어인가?
     - 자바스크립트가 프론트엔드에 쓸 수 있는 유일한 프로그래밍 언어다. 
     - 자바스크립트가 웹 전체를 아우르는 유일한 프로그래밍 언어다.
@@ -190,3 +463,750 @@ https://velog.io/@gil0127/Const%EB%8F%84-%EC%88%98%EC%A0%95-%EA%B0%80%EB%8A%A5%E
 
     # 0 == false ---> true
     # 0 === false ---> false
+
+14. document 
+    - html의 element들을 JS를 통해 변경하고 읽을 수 있다. 
+    - JS console에서 document를 치면 JS를 접착하고 있는 html을 보여준다.
+    - document는 이미 존재하는 object이다. -- > 따라서 객체의 속성에 접근할 때 처럼 .을 이용해서 
+        --> JS에서 document.title = "메롱"; --> 이라하면 html의 title을 바꿀 수 있다.
+        --> how ? 브라우저가 html 정보가 많이 들어있는 document라는 object를 전달해주는 것이다. 
+    - document는 웹사이트를 객체화 한 것을 의미한다. 브라우저의 렌더링 엔진이 html을 한줄한줄 읽고 다 읽고 나서 문서화 한다.
+    - document객체를 통해 JS가 html을 조작할 수 있음
+    - document객체를 통해 JS로 html에 속성을 추가, 수정할 수 있다는 소리다.
+
+15. document관련 함수 
+    - document.getElementById("") : ""안에 id를 입력한다.
+        ex) const title =document.getElementById("title");
+            console.log(title); --> <h1 id="title">JS로 title 불러오기</h1>
+            # console.dir() 로 보면 구체적인 내용을 볼 수 있다.
+            ex) console.dir(title)에 결과값 
+                /*
+                h1#title
+                    accessKey
+                    : 
+                    ""
+                    align
+                    : 
+                    ""
+                    ariaAtomic
+                    : 
+                    null
+                    ariaAutoComplete
+                    : 
+                    null
+                    ariaBrailleLabel
+                    : 
+                    null
+                    ariaBrailleRoleDescription
+                    : 
+                    null
+                    ariaBusy
+                    : 
+                    null
+                    ariaChecked
+                    : 
+                    null
+                    ariaColCount
+                    : 
+                    null
+                    ariaColIndex
+                    : 
+                    null
+                    ariaColSpan
+                    : 
+                    null
+                    ariaCurrent
+                    : 
+                    null
+                    ariaDescription
+                    : 
+                    null
+                    ariaDisabled
+                    : 
+                    null
+                    ariaExpanded
+                    : 
+                    null
+                    ariaHasPopup
+                    : 
+                    null
+                    ariaHidden
+                    : 
+                    null
+                    ariaInvalid
+                    : 
+                    null
+                    ariaKeyShortcuts
+                    : 
+                    null
+                    ariaLabel
+                    : 
+                    null
+                    ariaLevel
+                    : 
+                    null
+                    ariaLive
+                    : 
+                    null
+                    ariaModal
+                    : 
+                    null
+                    ariaMultiLine
+                    : 
+                    null
+                    ariaMultiSelectable
+                    : 
+                    null
+                    ariaOrientation
+                    : 
+                    null
+                    ariaPlaceholder
+                    : 
+                    null
+                    ariaPosInSet
+                    : 
+                    null
+                    ariaPressed
+                    : 
+                    null
+                    ariaReadOnly
+                    : 
+                    null
+                    ariaRelevant
+                    : 
+                    null
+                    ariaRequired
+                    : 
+                    null
+                    ariaRoleDescription
+                    : 
+                    null
+                    ariaRowCount
+                    : 
+                    null
+                    ariaRowIndex
+                    : 
+                    null
+                    ariaRowSpan
+                    : 
+                    null
+                    ariaSelected
+                    : 
+                    null
+                    ariaSetSize
+                    : 
+                    null
+                    ariaSort
+                    : 
+                    null
+                    ariaValueMax
+                    : 
+                    null
+                    ariaValueMin
+                    : 
+                    null
+                    ariaValueNow
+                    : 
+                    null
+                    ariaValueText
+                    : 
+                    null
+                    assignedSlot
+                    : 
+                    null
+                    attributeStyleMap
+                    : 
+                    StylePropertyMap {size: 0}
+                    attributes
+                    : 
+                    NamedNodeMap {0: id, id: id, length: 1}
+                    autocapitalize
+                    : 
+                    ""
+                    autofocus
+                    : 
+                    false
+                    baseURI
+                    : 
+                    "http://127.0.0.1:5500/index.html"
+                    childElementCount
+                    : 
+                    0
+                    childNodes
+                    : 
+                    NodeList [text]
+                    children
+                    : 
+                    HTMLCollection []
+                    classList
+                    : 
+                    DOMTokenList [value: '']
+                    className
+                    : 
+                    ""
+                    clientHeight
+                    : 
+                    43
+                    clientLeft
+                    : 
+                    0
+                    clientTop
+                    : 
+                    0
+                    clientWidth
+                    : 
+                    1022
+                    contentEditable
+                    : 
+                    "inherit"
+                    dataset
+                    : 
+                    DOMStringMap {}
+                    dir
+                    : 
+                    ""
+                    draggable
+                    : 
+                    false
+                    elementTiming
+                    : 
+                    ""
+                    enterKeyHint
+                    : 
+                    ""
+                    firstChild
+                    : 
+                    text
+                    firstElementChild
+                    : 
+                    null
+                    hidden
+                    : 
+                    false
+                    id
+                    : 
+                    "title"
+                    inert
+                    : 
+                    false
+                    innerHTML
+                    : 
+                    "JS로 title 불러오기"
+                    innerText
+                    : 
+                    "JS로 title 불러오기"
+                    inputMode
+                    : 
+                    ""
+                    isConnected
+                    : 
+                    true
+                    isContentEditable
+                    : 
+                    false
+                    lang
+                    : 
+                    ""
+                    lastChild
+                    : 
+                    text
+                    lastElementChild
+                    : 
+                    null
+                    localName
+                    : 
+                    "h1"
+                    namespaceURI
+                    : 
+                    "http://www.w3.org/1999/xhtml"
+                    nextElementSibling
+                    : 
+                    script
+                    nextSibling
+                    : 
+                    text
+                    nodeName
+                    : 
+                    "H1"
+                    nodeType
+                    : 
+                    1
+                    nodeValue
+                    : 
+                    null
+                    nonce
+                    : 
+                    ""
+                    offsetHeight
+                    : 
+                    43
+                    offsetLeft
+                    : 
+                    8
+                    offsetParent
+                    : 
+                    body
+                    offsetTop
+                    : 
+                    21
+                    offsetWidth
+                    : 
+                    1022
+                    onabort
+                    : 
+                    null
+                    onanimationend
+                    : 
+                    null
+                    onanimationiteration
+                    : 
+                    null
+                    onanimationstart
+                    : 
+                    null
+                    onauxclick
+                    : 
+                    null
+                    onbeforecopy
+                    : 
+                    null
+                    onbeforecut
+                    : 
+                    null
+                    onbeforeinput
+                    : 
+                    null
+                    onbeforematch
+                    : 
+                    null
+                    onbeforepaste
+                    : 
+                    null
+                    onbeforexrselect
+                    : 
+                    null
+                    onblur
+                    : 
+                    null
+                    oncancel
+                    : 
+                    null
+                    oncanplay
+                    : 
+                    null
+                    oncanplaythrough
+                    : 
+                    null
+                    onchange
+                    : 
+                    null
+                    onclick
+                    : 
+                    null
+                    onclose
+                    : 
+                    null
+                    oncontentvisibilityautostatechange
+                    : 
+                    null
+                    oncontextlost
+                    : 
+                    null
+                    oncontextmenu
+                    : 
+                    null
+                    oncontextrestored
+                    : 
+                    null
+                    oncopy
+                    : 
+                    null
+                    oncuechange
+                    : 
+                    null
+                    oncut
+                    : 
+                    null
+                    ondblclick
+                    : 
+                    null
+                    ondrag
+                    : 
+                    null
+                    ondragend
+                    : 
+                    null
+                    ondragenter
+                    : 
+                    null
+                    ondragleave
+                    : 
+                    null
+                    ondragover
+                    : 
+                    null
+                    ondragstart
+                    : 
+                    null
+                    ondrop
+                    : 
+                    null
+                    ondurationchange
+                    : 
+                    null
+                    onemptied
+                    : 
+                    null
+                    onended
+                    : 
+                    null
+                    onerror
+                    : 
+                    null
+                    onfocus
+                    : 
+                    null
+                    onformdata
+                    : 
+                    null
+                    onfullscreenchange
+                    : 
+                    null
+                    onfullscreenerror
+                    : 
+                    null
+                    ongotpointercapture
+                    : 
+                    null
+                    oninput
+                    : 
+                    null
+                    oninvalid
+                    : 
+                    null
+                    onkeydown
+                    : 
+                    null
+                    onkeypress
+                    : 
+                    null
+                    onkeyup
+                    : 
+                    null
+                    onload
+                    : 
+                    null
+                    onloadeddata
+                    : 
+                    null
+                    onloadedmetadata
+                    : 
+                    null
+                    onloadstart
+                    : 
+                    null
+                    onlostpointercapture
+                    : 
+                    null
+                    onmousedown
+                    : 
+                    null
+                    onmouseenter
+                    : 
+                    null
+                    onmouseleave
+                    : 
+                    null
+                    onmousemove
+                    : 
+                    null
+                    onmouseout
+                    : 
+                    null
+                    onmouseover
+                    : 
+                    null
+                    onmouseup
+                    : 
+                    null
+                    onmousewheel
+                    : 
+                    null
+                    onpaste
+                    : 
+                    null
+                    onpause
+                    : 
+                    null
+                    onplay
+                    : 
+                    null
+                    onplaying
+                    : 
+                    null
+                    onpointercancel
+                    : 
+                    null
+                    onpointerdown
+                    : 
+                    null
+                    onpointerenter
+                    : 
+                    null
+                    onpointerleave
+                    : 
+                    null
+                    onpointermove
+                    : 
+                    null
+                    onpointerout
+                    : 
+                    null
+                    onpointerover
+                    : 
+                    null
+                    onpointerrawupdate
+                    : 
+                    null
+                    onpointerup
+                    : 
+                    null
+                    onprogress
+                    : 
+                    null
+                    onratechange
+                    : 
+                    null
+                    onreset
+                    : 
+                    null
+                    onresize
+                    : 
+                    null
+                    onscroll
+                    : 
+                    null
+                    onsearch
+                    : 
+                    null
+                    onsecuritypolicyviolation
+                    : 
+                    null
+                    onseeked
+                    : 
+                    null
+                    onseeking
+                    : 
+                    null
+                    onselect
+                    : 
+                    null
+                    onselectionchange
+                    : 
+                    null
+                    onselectstart
+                    : 
+                    null
+                    onslotchange
+                    : 
+                    null
+                    onstalled
+                    : 
+                    null
+                    onsubmit
+                    : 
+                    null
+                    onsuspend
+                    : 
+                    null
+                    ontimeupdate
+                    : 
+                    null
+                    ontoggle
+                    : 
+                    null
+                    ontransitioncancel
+                    : 
+                    null
+                    ontransitionend
+                    : 
+                    null
+                    ontransitionrun
+                    : 
+                    null
+                    ontransitionstart
+                    : 
+                    null
+                    onvolumechange
+                    : 
+                    null
+                    onwaiting
+                    : 
+                    null
+                    onwebkitanimationend
+                    : 
+                    null
+                    onwebkitanimationiteration
+                    : 
+                    null
+                    onwebkitanimationstart
+                    : 
+                    null
+                    onwebkitfullscreenchange
+                    : 
+                    null
+                    onwebkitfullscreenerror
+                    : 
+                    null
+                    onwebkittransitionend
+                    : 
+                    null
+                    onwheel
+                    : 
+                    null
+                    outerHTML
+                    : 
+                    "<h1 id=\"title\">JS로 title 불러오기</h1>"
+                    outerText
+                    : 
+                    "JS로 title 불러오기"
+                    ownerDocument
+                    : 
+                    document
+                    parentElement
+                    : 
+                    body
+                    parentNode
+                    : 
+                    body
+                    part
+                    : 
+                    DOMTokenList [value: '']
+                    prefix
+                    : 
+                    null
+                    previousElementSibling
+                    : 
+                    null
+                    previousSibling
+                    : 
+                    text
+                    role
+                    : 
+                    null
+                    scrollHeight
+                    : 
+                    43
+                    scrollLeft
+                    : 
+                    0
+                    scrollTop
+                    : 
+                    0
+                    scrollWidth
+                    : 
+                    1022
+                    shadowRoot
+                    : 
+                    null
+                    slot
+                    : 
+                    ""
+                    spellcheck
+                    : 
+                    true
+                    style
+                    : 
+                    CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+                    tabIndex
+                    : 
+                    -1
+                    tagName
+                    : 
+                    "H1"
+                    textContent
+                    : 
+                    "JS로 title 불러오기"
+                    title
+                    : 
+                    ""
+                    translate
+                    : 
+                    true
+                    virtualKeyboardPolicy
+                    : 
+                    ""
+                    [[Prototype]]
+                    : 
+                    HTMLHeadingElement
+                */
+
+                # -> 가령, html에서 해당 태그에 autofocus를 써주면 JS에서 autofocus : true로 나타나고
+                #    class를 추가하면 JS에서 className : "해당 class이름"으로 나온다.
+    - documenet.getElementsbyClassName("") : class명을 입력한다. 왜 elements? --> id는 유일하지만 class는 여러개 설정 가능하니까. 결과는 배열 형태로 나온다. 즉 인덱스를 통해 개별적으로 접근 가능           
+        ex) const hello = document.getElementsByClassName('hello');
+            console.log(hello);의 결과값 HTMLcollection(5) [p.hello, p.hello, p.hello, p.hello, p.hello] -> 배열인데 요소가 5개 있다는 뜻
+    - document.getElementsByClassName('hello')[0].innerHTML; -> 처음의 class이름이 hello인 녀석의 '안'의 요소를 가져온다(시작태그 끝태그가 포함된) 그러나 class명이 붙어있는 태그는 가져오지 않는다. 말그대로 'inner'
+    
+
+
+    # ---> 아 메소드 명이 길다 맨날 id , class, tag 이런것중 무엇을 쓰는지에 따라 메소드명 달라져야함? ;;; 
+    # ---> document.getElementsByClassName()안에 class여도 .를 쓰지 않고 class명만 쓰니까 직관적으로 단번에 보기 불편하네 ;;;; 
+    # ---> css방식으로 검색할 수 있는 함수 없음 ?
+    - document.querySelector('') : 존재하는 것 중 가장 위에 있는 것 한가지를 가져온다.
+    - documebt.querySelectorAll('') : 존재하는 모든 것을 불러온다. 즉 배열형태로 가져오겠구만 
+    ''안에 css 방식으로 검색할 수 있다. id # class . 태그는 걍 태그명
+    
+    💕💕document.querySelector('link')  = document.getElementsByTagName('link')[0];
+        --> 결과 : <link rel="stylesheet" href="style.css">
+    💕💕
+        <body>
+            <div class="hello">
+                 <h1>Grab me!1</h1>
+                 <h1>Grab me!2</h1>
+            </div>
+            
+            <script src="app.js"></script>
+        </body>
+        여기에서 h1 2개를 가져오는 법 
+        1) 몇개를 가져오냐 ? 여러개 -> querySelectorAll / 한개 -> querySelector
+        2) 어떻게 접근할까 ? hello 클래스의 자식을 가져오고 싶은거네 
+        --> const result = document.querySelectorAll('.hello h1');// 여기서 All이란 의미는 실질적으로 가져오고 싶은것의 단수복수를 생각하는 것이다. 가져오는 과정에서 쓰이는 것이 여러개라고 복수라 생각하지마라
+            console.log(result); --> NodeList(2) [h1, h1]
+    
+
+
+    💕💕
+        <body>
+            <div class="hello">
+                <h1>Grab me!1</h1>
+                <h1>Grab me!2</h1>
+            </div>
+
+            <div class="hello">
+                <h1>Grab me!3</h1>
+                <h1>Grab me!4</h1>
+            </div>
+
+
+            <div class="hello">
+                <h1>Grab me!5</h1>
+                <h1>Grab me!6</h1>
+            </div>
+            <script src="app.js">
+                
+            </script>
+        </body>
+
+        -- >여기에서 
+           1) <h1>Grab me!1</h1>
+           를 가져와라 .
+
+           const result = document.querySelector(".hello h1");
+           console.log(result);
+
+           --> document.querySelectorAll(".hello h1")의 결과는 
+           <h1>Grab me!</h1> 1 ~ 6을 배열 형태로 다 가져오는데, 
+           document.querySelector(".hello h1")를 쓰면 
+           여기서 가장 첫번째에 있는
+           <h1>Grab me!1</h1>만 가져온다.
