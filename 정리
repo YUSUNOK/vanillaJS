@@ -2276,3 +2276,89 @@ https://velog.io/@gil0127/Const%EB%8F%84-%EC%88%98%EC%A0%95-%EA%B0%80%EB%8A%A5%E
     - window.addEventListener("offline", ~ ) // 와이파이 끊겼을 떄 
     - window.addEventListener("online", ~) // 와이파이 연결됐을 떄
 
+    # vscode에서 동일한 단어 일괄 변경 : 단어 하나 드래그 -> ctrl + shift + L 하고 바꿔주면 일괄변경됨
+    # 니콜라스는 js로 element의 style을 변경하는것을 별로 좋아하지 않음 -> css에서 변경하는 것을 추천한다.
+
+22. JS에서 style을 직접 변경하는 방식이 아니라 Class명을 줬다 뺏는 방식으로 제어하여 색깔 줬다 뺏기 : 객체의 classname을 컨트롤 하면 된다. -> classList에서 add remove하는 식으로 기존의 class를 보존하는 방법을 써라.
+[CSS]
+
+body {
+  background-color: beige;
+}
+
+h1 {
+  color: cornflowerblue;
+}
+.active {
+  color: tomato;
+}
+
+[html]
+<body>
+    <div id="first" class="hello">
+      <h1>Grab me!1</h1>
+      <h1>Grab me!2</h1>
+    </div>
+
+    <div class="hello">
+      <h1>Grab me!3</h1>
+      <h1>Grab me!4</h1>
+    </div>
+
+    <div class="hello">
+      <h1>Grab me!5</h1>
+      <h1>Grab me!6</h1>
+    </div>
+    <script src="app.js"></script>
+  </body>
+
+  [javascript]
+const h1 = document.querySelector("#first h1");
+console.log(h1);
+console.dir(h1);
+function handleTitleClick() {
+  const clickedClass = "active"; // class명을 변수에 넣어줘서 오타났을 때 에러나는 것을 최소화 한다.
+  if (h1.className === clickedClass) {
+    h1.className = "";
+  } else {
+    h1.className = clickedClass;
+  }
+}
+h1.addEventListener("click", handleTitleClick);
+
+
+
+---> 22번 방식을 추천한다.
+
+function handleTitleClick() {
+  const changeClass = "active";
+  if (h1.classList.contains(changeClass)) {
+    h1.classList.remove(changeClass);
+  } else {
+    h1.classList.add(changeClass);
+  }
+}
+이렇게 className을 쓰는게 아니라 classList를 쓰는게 맞는 이유가 
+className을 쓰면 기존에 가지고 있던 class명이 사라지게 수정이 된단 말임
+따라서 classList에 변경할 것만 더하고 빼면 기존에 가지고 있던 class는 보존이 되잖음 
+# 여기 참고 --> https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList
+
+23. toggle function
+- 1) classList에 해당 classname이 존재하는지 확인을 한다.
+- 2) classname이 존재하면 classname을 제거한다.
+- 3) classname이 없으면 classname을 추가한다.
+
+const h1 = document.querySelector("#first h1");
+console.log(h1);
+console.dir(h1);
+function handleTitleClick() {
+  const changeClass = "active";
+  h1.classList.toggle(changeClass); //changeClass인 active가 class명에 포함되어있으면 이 class명을 제거하고 없으면 추가하는 toggle 함수 편하다.
+}
+h1.addEventListener("click", handleTitleClick);
+
+
+
+
+
+
