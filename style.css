@@ -1,13 +1,3 @@
-body {
-  background-color: beige;
-}
-
-h1 {
-  color: cornflowerblue;
-}
-.active {
-  color: tomato;
-}
-.classBug {
-  font-size: larger;
+.hidden {
+  display: none;
 }

@@ -4,25 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momentum</title>
-
+    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="first" class="hello">
-      <h1 class="classBug">Grab me!1</h1>
-      <h1>Grab me!2</h1>
-    </div>
+    <!-- input과 button이 많아서묶는다. 
+    input의 유효성 검사를 하기 위해서 input이 form안에 묶여 있어야 한다.
 
-    <div class="hello">
-      <h1>Grab me!3</h1>
-      <h1>Grab me!4</h1>
-    </div>
+    1)input안에 있는 button을 누르거나
+    2)type이 submit인 input을 클릭하거나 
+    3)form안에서 input에 값을 입력하고 더이상 남은 input이 없을 때 엔터를 누르면 submit 된다.
+    ✨문제 발생 : submit될 때마다 페이지가 새로고침이 된다. 
 
-    <div class="hello">
-      <h1>Grab me!5</h1>
-      <h1>Grab me!6</h1>
-    </div>
+    -->
+    <form id="login-form">
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+      <button>Log In</button>
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
+    <!-- <a href="https://www.naver.com/">네이버로 이동</a> -->
     <script src="app.js"></script>
   </body>
 </html>
