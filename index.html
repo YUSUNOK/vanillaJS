@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
   </head>
   <body>
     <!-- input과 button이 많아서묶는다. 
@@ -17,7 +17,7 @@
     ✨문제 발생 : submit될 때마다 페이지가 새로고침이 된다. 
 
     -->
-    <form id="login-form">
+    <form class="hidden" id="login-form">
       <input
         required
         maxlength="15"
@@ -26,8 +26,18 @@
       />
       <button>Log In</button>
     </form>
+    <h2 id="clock"></h2>
     <h1 id="greeting" class="hidden"></h1>
+    <div id="quote">
+      <span>quoto</span>
+      <span>author</span>
+    </div>
+    <!-- <img src="" alt="배경이미지입니다." class="img" /> -->
+
     <!-- <a href="https://www.naver.com/">네이버로 이동</a> -->
-    <script src="app.js"></script>
+    <script src="JS/greetings.js"></script>
+    <script src="JS/clock.js"></script>
+    <script src="JS/quotes.js"></script>
+    <script src="JS/background.js"></script>
   </body>
 </html>
