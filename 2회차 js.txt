@@ -1,0 +1,47 @@
+[2회차 키워드 JS]
+- f12 콘솔창 : js, elements : html ,style css 
+- html은 접착제
+- 변수명은 낙타
+- const(재선언x재할당x) >>> let(재선언x, 재할당o) >>>>>>>>>>>>>var(쓰지마)
+- `hello~ ${변수명}`
+- undefined : 값, 자료형 둘다 모름
+- null : 값만 모름 -> 비이상적인 상황 -> variable안에 어떤 것이 없다는 것을 확실히 하기 위해 쓰는 것임
+- array : 다른 자료형을 넣어도 된다.
+- array.push(어떤 값) : 어떤 값을 맨 뒤 인덱스에 추가한다.
+- array[없는 인덱스 ex 9999999999]  -> undefined 나옴
+- 객체 -> 각각의 프로퍼티는 .으로 접근 가능 . 수정 추가 가능, 함수도 넣을 수 있음
+- 함수 즉시 호출 시 함수명()
+- 함수에 값을 보내면서 호출 함수명(값)
+- 함수의 매개변수는 괄호안에서만
+- 함수 매개변수 개수만큼 전달 매개변수보다 적으면 남은거 undefined
+- 함수는 return후 종료 
+- prompt, alert  안씀 -> JS코드를 잠시 멈추게 함
+- typeof 자료형 확인
+- parseInt : 문자열을 정수로 -> ㅁㅇㄹ는 Nan(Not a number)
+- parseFloat : 문자열을 소수점있는 숫자로 -> asd는 Nan(Not a number)
+- isNaN : Nan판단 -> 결과 boolean
+- if(boolean)
+- || && == ===(자료형도 같음) != !==(자료형까지 완전히 같아야지만 false) 
+- document
+- console.dir --> 찍어봐서 트리형태로(두번건너뛰기 안됨) .으로 접근가능
+- console.log
+- document.querySelector >>>>>>>>> document.getElementById >> document.querySelecterAll
+쿼리 ~ : css써서 접근 가능 
+쿼리셀렉터 : 요소 한.개만 가져옴(쿼리 셀렉터 올에서 가장 최초의 것 하나를 가져옴)
+쿼리셀렉터올 : 요소 여러개를 배열형태로 가져옴
+겟요소바이아이디 : 아이디로. css사용 불가
+겟요소s바이클래스네임 : 클래스명으로. css사용불가 --> 요소'들'이나오기 때문에 배열형태임
+-className : 클래스 여러개면 클1 클2 클3 이런식으로 나옴
+-classList : 클래스가 배열형태로 -> 인덱스로 접근 가능
+-innerText : 안의 내용만 뽑아냄
+-innerHTML : 안의 내용 + 태그 뽑아냄
+-객체 출력하면 : 객체의 앞, 끝태그 포함 전체 뽑아냄
+-console.dir() 찍어봐서 앞에 on들어가있는게 이벤트임 on + 이벤트명
+-객체.addEventListener("이벤트명", 함수명) ---> 함수명만써라 우리가 함수를 호.출.하.는.것.이.아님. 즉, 함수명()이러지 말라고
+- JS 모르는거 -> mdn에서 찾아라
+- JS의 윈도우 : 브라우저의 최상위 객체, console.dir(window)로 자세히 보셈 무슨 이벤트 줄 수 있는지 나와있음. ex) resize, copy, offline, online
+- document : DOM객체의 최상위 객체 
+- DOM : 웹 브라우저 렌더링 엔진이 html코드를 한줄한줄 다읽고나서 페이지를 객체형태로 만든다 --> 덕분에 js가 해당 문서에 접근하여 읽고 조작할 수 있는 것임
+- 오타나면 에러나니까 무언가 액션을 취할 땐(동일한 문자열을 여러번 써먹어야 할 때) 변수에 집어넣어라 
+- js에서 요소의 css를 직접 바꾸는 것을 선호하지 않는다. 그러면 css코드가 js에 중구난방으로 적히니까 -> 
+3.7
