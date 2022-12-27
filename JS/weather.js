@@ -9,18 +9,15 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const weatherContainer = document.getElementById("weather");
-      const name = data.name;
-      const weather = data.weather[0].main;
+      const weather = document.querySelector("#weather span:first-child");
+      const city = document.querySelector("#weather span:last-child");
+      city.innerText = data.name;
+      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
     }); // f12 network - preview에서 자세한 정보 확인할 수 있다.
   /*
         fetch ; promise이다. 이는 당장 뭔가 일어나지 않고 시간이 좀 걸린 뒤에 일어난다.
         .name 
         .weather
-    
-    
-    
-    
     */
 }
 
